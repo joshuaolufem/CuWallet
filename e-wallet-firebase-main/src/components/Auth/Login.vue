@@ -40,6 +40,7 @@ export default {
         let result = await axios.post("http://localhost:3000/student/auth/login", data);
 
         console.log(result)
+        this.$router.push('/dashboard')
       }
       catch(e){
         console.log(e);

@@ -1,7 +1,7 @@
 <template lang="html">
   <nav class="navbar navbar-expand-lg navbar-light bg-white shadow sticky-top">
     <div class="container">
-      <router-link class="navbar-brand me-5" to="/">E-Wallet</router-link>
+      <router-link class="navbar-brand me-5" to="/">CU-Wallet</router-link>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -16,8 +16,8 @@
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><router-link class="dropdown-item" to="/">Wallet</router-link></li>
-              <li><router-link class="dropdown-item" to="/">Canteen</router-link></li>
-              <li><router-link class="dropdown-item" to="/">Store</router-link></li>
+              <li><router-link class="dropdown-item" to="/">Restaurant</router-link></li>
+              <li><router-link class="dropdown-item" to="/">Shopping Mall</router-link></li>
               <li><hr class="dropdown-divider"></li>
               <li><router-link class="dropdown-item" to="/">FAQs</router-link></li>
             </ul>

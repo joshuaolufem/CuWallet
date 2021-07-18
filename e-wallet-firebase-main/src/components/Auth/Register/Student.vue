@@ -40,17 +40,17 @@
     </div>
     <div class="col-md-6">
       <label class="form-label">Password</label>
-      <input type="password" class="form-control" placeholder="password" required v-model="password">
+      <input type="password" class="form-control" placeholder="Password" required v-model="password">
     </div>
     <div class="col-md-6">
       <label class="form-label">Confirm Password</label>
-      <input type="password" class="form-control" placeholder="confirm password" required v-model="confirmPassword">
+      <input type="password" class="form-control" placeholder="Confirm password" required v-model="confirmPassword">
     </div>
     <div class="col-12">
       <div class="form-check">
         <input class="form-check-input" type="checkbox" id="gridCheck" v-model="checked" required>
         <label class="form-check-label" for="gridCheck">
-          I agree to the <a href="#">Terms</a> & <a href="#">Conditions</a> of E-Wallet. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Check here to indicate that you have read the <a href="#">Terms</a> & <a href="#">Conditions</a> of Cu-Wallet. 
         </label>
       </div>
     </div>
@@ -126,11 +126,10 @@ export default {
           department: "science",
           // role: 'student'
         }
-        if (data.password.length > 8){
+        // if (data.password.length > 8){
           if (data.password === data.confirmPassword){
             console.log(data)
           }
-        }
         else {
           alert('Password does not match')
         }

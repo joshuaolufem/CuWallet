@@ -12,6 +12,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import Navbar from './Navbar'
 import Sidebar from './Sidebar'
 
@@ -20,7 +21,10 @@ export default {
   components: {
     Navbar,
     Sidebar
-  }
+  },
+  computed: {
+  ...mapGetters({ user: 'user' })
+}
 }
 </script>
 

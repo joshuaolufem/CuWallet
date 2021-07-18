@@ -4,8 +4,8 @@
       <h3 class="text-dark">Fund Student</h3>
       <form class="user">
         <div class="mb-3 form-group">
-          <label>Student Wallet ID</label>
-          <input type="text" placeholder="Student ID" class="form-control">
+          <label>Student E-mail</label>
+          <input type="email" class="form-control" placeholder="joshuaolufemi@email.com" required v-model="email">
         </div>
         <div class="mb-3 form-group">
           <label>Amount</label>
@@ -25,8 +25,30 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
-  name: 'Fund Student'
+  name: 'Fund Student',
+  data: () => ({
+    email: '',
+    amount: ''
+
+  }),
+
+  methods: {
+    async fundStudent (){
+      try {
+        const data = {
+          email: this.email,
+          amount: this.amount,
+        }
+        let result = await axios.post("http:localhost:3000/user/agent/60e38b887d54bb3e74673478/fundstudentwallet", data);
+        console.log(result)
+      }catch(e){
+        console.log(e);
+      }
+    }
+  }
+
 }
 </script>
 

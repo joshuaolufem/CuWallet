@@ -14,41 +14,14 @@
               <router-link to="/">Wallet</router-link>
             </li>
             <li>
-              <router-link to="/">Canteen</router-link>
+              <router-link to="/">Restaurants</router-link>
             </li>
             <li>
               <router-link to="/">Store</router-link>
             </li>
           </ul>
         </div>
-        <div class="col-md-3 mb-3 text-center-767">
-          <h6 class="text-danger">Products</h6>
-          <ul class="list-group list-group-flush">
-            <li>
-              <router-link to="/">Wallet</router-link>
-            </li>
-            <li>
-              <router-link to="/">Canteen</router-link>
-            </li>
-            <li>
-              <router-link to="/">Store</router-link>
-            </li>
-          </ul>
-        </div>
-        <div class="col-md-3 mb-3 text-center-767">
-          <h6 class="text-danger">Products</h6>
-          <ul class="list-group list-group-flush">
-            <li>
-              <router-link to="/">Wallet</router-link>
-            </li>
-            <li>
-              <router-link to="/">Canteen</router-link>
-            </li>
-            <li>
-              <router-link to="/">Store</router-link>
-            </li>
-          </ul>
-        </div>
+        
         <div class="col-md-12 text-center mt-5">
           <p>Copyright &copy; 2021 Joshua Olufemi</p>
         </div>

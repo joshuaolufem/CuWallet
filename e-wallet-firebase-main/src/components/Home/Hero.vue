@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-md-6 py-5 text-white">
           <h3 class="my-3">CASHLESS MADE EFFORTLESS</h3>
-          <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p class="mb-4">Online payment is rapidly displacing traditional payment methods, such as human contact between business owners and customers. Regardless of their size, most businesses prefer to use electronic payment systems.</p>
           <router-link to="/auth" class="btn btn-outline-light btn-general">Get Started</router-link>
         </div>
         <div class="col-md-6 text-center d-none-767">
