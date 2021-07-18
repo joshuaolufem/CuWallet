@@ -1,0 +1,42 @@
+export const storeItems = [
+         {
+           id: 1,
+           img: "https://via.placeholder.com/100",
+           price: 1000,
+           title: "Cornflakes",
+           description: "Some fancy item",
+           btnText: "Add to cart",
+         },
+         {
+           id: 2,
+           img: "https://via.placeholder.com/100",
+           price: 1800,
+           title: "Peak Milk",
+           description: "Some fancy item",
+           btnText: "Add to cart",
+         },
+         {
+           id: 3,
+           img: "https://via.placeholder.com/100",
+           price: 1500,
+           title: "Milo",
+           description: "Some fancy item",
+           btnText: "Add to cart",
+         },
+         {
+           id: 4,
+           img: "https://via.placeholder.com/100",
+           price: 1000,
+           title: "Pack of Biscuit",
+           description: "Some fancy item",
+           btnText: "Add to cart",
+         },
+         {
+           id: 5,
+           img: "https://via.placeholder.com/100",
+           price: 500,
+           title: "Cubed Sugar",
+           description: "Some fancy item",
+           btnText: "Add to cart",
+         },
+       ];
