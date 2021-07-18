@@ -4,93 +4,14 @@
       <div class="row g-3">
         <div class="col-md-9 container">
           <div class="row g-3 container">
-            <div class="col-md-4 col-lg-3 col-sm-6 col-xsm-6">
+            <div class="col-md-4 col-lg-3 col-sm-6 col-xsm-6" v-for="item in items" v-bind:key="item.id">
               <div class="card">
-                <img src="https://via.placeholder.com/100" class="card-img-top" alt="...">
+                <img :src="item.img" class="card-img-top" :alt="item.description">
                 <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text</p>
-                  <a href="#" class="btn btn-dark d-block">Add to cart</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-lg-3 col-sm-6 col-xsm-6">
-              <div class="card">
-                <img src="https://via.placeholder.com/100" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text</p>
-                  <a href="#" class="btn btn-dark d-block">Add to cart</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-lg-3 col-sm-6 col-xsm-6">
-              <div class="card">
-                <img src="https://via.placeholder.com/100" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text</p>
-                  <a href="#" class="btn btn-dark d-block">Add to cart</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-lg-3 col-sm-6 col-xsm-6">
-              <div class="card">
-                <img src="https://via.placeholder.com/100" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text</p>
-                  <a href="#" class="btn btn-dark d-block">Add to cart</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-lg-3 col-sm-6 col-xsm-6">
-              <div class="card">
-                <img src="https://via.placeholder.com/100" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text</p>
-                  <a href="#" class="btn btn-dark d-block">Add to cart</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-lg-3 col-sm-6 col-xsm-6">
-              <div class="card">
-                <img src="https://via.placeholder.com/100" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text</p>
-                  <a href="#" class="btn btn-dark d-block">Add to cart</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-lg-3 col-sm-6 col-xsm-6">
-              <div class="card">
-                <img src="https://via.placeholder.com/100" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text</p>
-                  <a href="#" class="btn btn-dark d-block">Add to cart</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-lg-3 col-sm-6 col-xsm-6">
-              <div class="card">
-                <img src="https://via.placeholder.com/100" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text</p>
-                  <a href="#" class="btn btn-dark d-block">Add to cart</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-lg-3 col-sm-6 col-xsm-6">
-              <div class="card">
-                <img src="https://via.placeholder.com/100" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text</p>
-                  <a href="#" class="btn btn-dark d-block">Add to cart</a>
+                  <h5 class="card-title">{{item.title}}</h5>
+                  <h5 class="card-title">₦ {{item.price}}</h5>
+                  <p class="card-text">{{item.description}}</p>
+                  <a href="#" class="btn btn-dark d-block">{{item.btnText}}</a>
                 </div>
               </div>
             </div>
@@ -120,8 +41,15 @@
 </template>
 
 <script>
+import { storeItems } from './items'
+
 export default {
-  name: 'Store'
+  name: 'Store',
+  data() {
+    return {
+      items: storeItems
+    }
+  },
 }
 </script>
 
