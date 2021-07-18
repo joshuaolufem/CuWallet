@@ -9,7 +9,7 @@
                 <img :src="item.img" class="card-img-top" :alt="item.description">
                 <div class="card-body">
                   <h5 class="card-title">{{item.title}}</h5>
-                  <h5 class="card-title">#{{item.price}}.00</h5>
+                  <h5 class="card-title">₦ {{item.price}}</h5>
                   <p class="card-text">{{item.description}}</p>
                   <a href="#" class="btn btn-dark d-block">{{item.btnText}}</a>
                 </div>
