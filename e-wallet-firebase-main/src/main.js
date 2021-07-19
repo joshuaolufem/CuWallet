@@ -5,20 +5,15 @@ import store from './store'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 import 'bootstrap-icons/font/bootstrap-icons.css'
+import axios from 'axios'
 // import { auth } from './firebase'
 
 Vue.config.productionTip = false
 
-// let app
-// auth.onAuthStateChanged(() => {
-//   if (!app) {
-//     app = new Vue({
-//       router,
-//       store,
-//       render: h => h(App)
-//     }).$mount('#app')
-//   }
-// })
+const token = localStorage.getItem('token')
+if (token) {
+  axios.defaults.headers.common['Authorization'] = token
+}
 
 new Vue({
   router,

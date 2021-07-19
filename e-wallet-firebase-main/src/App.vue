@@ -4,6 +4,24 @@
   </div>
 </template>
 
+<script>
+import axios from 'axios'
+
+export default {
+  created: function () {
+    axios.interceptors.response.use(undefined, function (err) {
+      return new Promise(function () {
+        if (err.status === 401 && err.config && !err.config.__isRetryRequest) {
+          this.$store.dispatch('logout')
+          this.$router.push('/auth/login')
+        }
+        throw err
+      })
+    })
+  }
+}
+</script>
+
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

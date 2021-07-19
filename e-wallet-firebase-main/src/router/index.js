@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../components/Home'
+import store from '../store'
 
 Vue.use(VueRouter)
 
@@ -14,6 +15,9 @@ const routes = [
     path: '/dashboard',
     name: 'Dashboard',
     component: () => import('../components/Dashboard'),
+    meta: {
+      requiresAuth: true
+    },
     children: [
       {
         path: '',
@@ -125,6 +129,44 @@ const routes = [
             ]
           }
         ]
+      },
+      {
+        path: 'admin',
+        name: 'Admin',
+        component: () => import('../components/Dashboard/Admin'),
+        children: [
+          {
+            path: 'agents',
+            name: 'Agents',
+            component: () => import('../components/Dashboard/Admin/Agents'),
+            children: [
+              {
+                path: '',
+                redirect: 'all-agents'
+              },
+              {
+                path: 'all-agents',
+                name: 'AllAgents',
+                component: () => import('../components/Dashboard/Admin/Agents/AllAgents')
+              },
+              {
+                path: 'create-agent-account',
+                name: 'CreateAgentAccount',
+                component: () => import('../components/Dashboard/Admin/Agents/CreateAgentAccount')
+              }
+            ]
+          },
+          {
+            path: 'service-providers',
+            name: 'ServiceProvider',
+            component: () => import('../components/Dashboard/Admin/ServiceProviders')
+          },
+          {
+            path: 'students',
+            name: 'Students',
+            component: () => import('../components/Dashboard/Admin/Students')
+          }
+        ]
       }
     ]
   },
@@ -202,6 +244,16 @@ const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
+})
+
+router.beforeEach((to, from, next) => {
+  const requiresAuth = to.matched.some(x => x.meta.requiresAuth)
+
+  if (requiresAuth && !store.getters.currentUser) {
+    next('/auth/login')
+  } else {
+    next()
+  }
 })
 
 export default router

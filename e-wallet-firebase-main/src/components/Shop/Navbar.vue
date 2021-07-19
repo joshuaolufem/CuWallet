@@ -7,7 +7,7 @@
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="bi bi-person-fill"></i> Joshua
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
             <li><router-link class="dropdown-item" to="/">Delete Account</router-link></li>
             <li><hr class="dropdown-divider"></li>
             <li><router-link class="dropdown-item" to="/">Log out</router-link></li>

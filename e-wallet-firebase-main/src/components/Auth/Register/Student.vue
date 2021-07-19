@@ -50,7 +50,7 @@
       <div class="form-check">
         <input class="form-check-input" type="checkbox" id="gridCheck" v-model="checked" required>
         <label class="form-check-label" for="gridCheck">
-          Check here to indicate that you have read the <a href="#">Terms</a> & <a href="#">Conditions</a> of Cu-Wallet. 
+          Check here to indicate that you have read the <a href="#">Terms</a> & <a href="#">Conditions</a> of Cu-Wallet.
         </label>
       </div>
     </div>
@@ -102,7 +102,9 @@ export default {
     selectedCourse: '',
     email: '',
     password: '',
-    confirmPassword: ''
+    confirmPassword: '',
+    loading: false,
+    disabled: false
   }),
 
   methods: {
@@ -126,17 +128,22 @@ export default {
           department: "science",
           // role: 'student'
         }
-        // if (data.password.length > 8){
+        if (data.password.length >= 6){
           if (data.password === data.confirmPassword){
             console.log(data)
           }
-        else {
-          alert('Password does not match')
+          else {
+            alert('Password does not match')
+          }
         }
 
-        let result = await axios.post("http://localhost:3000/student/auth/signup", data);
+        let result = await axios.post("http://localhost:3000/student/auth/signup", data)
 
         console.log(result)
+        //I added this
+        this.$router.push('/auth/login')
+
+
 
       } catch(e){
 console.log(e);

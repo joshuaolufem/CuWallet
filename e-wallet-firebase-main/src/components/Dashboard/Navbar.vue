@@ -8,12 +8,11 @@
       <ul class="navbar-nav ml-auto mb-2 mb-lg-0 d-flex">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="bi bi-person-fill"></i> Joshua
+            <i class="bi bi-person-fill"></i> {{ currentUser.firstName }}
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><router-link class="dropdown-item" to="/">Delete Account</router-link></li>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
             <li><hr class="dropdown-divider"></li>
-            <li><router-link class="dropdown-item" to="/">Log out</router-link></li>
+            <li><a class="dropdown-item" to="/" @click="logout">Log out</a></li>
           </ul>
         </li>
       </ul>
@@ -22,8 +21,24 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
-  name: 'Navbar'
+  name: 'Navbar',
+  computed: {
+    ...mapGetters({ currentUser: 'currentUser' })
+  },
+  methods: {
+    async logout () {
+      try {
+        await this.$store.dispatch('logout')
+        this.$router.push('/auth/login')
+      }
+      catch(e) {
+        console.log(e)
+      }
+    }
+  }
 }
 </script>
 
