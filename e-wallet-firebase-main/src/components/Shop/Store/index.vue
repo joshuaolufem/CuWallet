@@ -53,7 +53,7 @@ export default {
   },
   methods: {
     async addToCart (item) {
-      alert(item.title)
+      await this.$store.dispatch('addItem', item)
     },
     routeToCart () {
       this.$router.push('/shop/cart')
