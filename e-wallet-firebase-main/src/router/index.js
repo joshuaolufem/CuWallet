@@ -180,19 +180,24 @@ const routes = [
         redirect: '/shop/home'
       },
       {
-        path: '/shop/home',
+        path: 'home',
         name: 'Home',
         component: () => import('../components/Shop/Home')
       },
       {
-        path: '/shop/store',
+        path: 'store',
         name: 'Store',
         component: () => import('../components/Shop/Store')
       },
       {
-        path: '/shop/canteen',
+        path: 'canteen',
         name: 'Canteen',
         component: () => import('../components/Shop/Canteen')
+      },
+      {
+        path: 'cart',
+        name: 'Cart',
+        component: () => import('../components/Shop/Cart')
       }
     ]
   },
@@ -230,11 +235,6 @@ const routes = [
         path: '/auth/login',
         name: 'Login',
         component: () => import('../components/Auth/Login')
-      },
-      {
-        path: '/shop',
-        name: 'Shop',
-        component: () => import('../components/Shop')
       }
     ]
   }

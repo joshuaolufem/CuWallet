@@ -7,15 +7,26 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     currentUser: '',
-    token: localStorage.getItem('token') || ''
+    token: localStorage.getItem('token') || '',
+    inCart: []
   },
   mutations: {
     SET_USER: (state, user) => state.currentUser = user,
-    REMOVE_USER: (state) => state.currentUser = ''
+    REMOVE_USER: state => state.currentUser = '',
+    ADD_TO_CART: (state, item) => {
+      let found = state.inCart.find(item => item.id == item.id)
+      if (found) {
+        item.addedToCart = true
+      } else {
+        state.inCart.push(item)
+        item.addedToCart = true
+      }
+    },
   },
   getters: {
     isAuthenticated: state => !!state.token,
-    currentUser: state => state.currentUser
+    currentUser: state => state.currentUser,
+    inCart: state => state.inCart
   },
   actions: {
     setUser (context, user) {
@@ -25,6 +36,9 @@ export default new Vuex.Store({
       localStorage.removeItem('token')
       context.commit('REMOVE_USER')
       delete axios.defaults.headers.common['Authorization']
+    },
+    async addItem (context, item) {
+      await context.commit('ADD_TO_CART', item)
     }
   },
   modules: {

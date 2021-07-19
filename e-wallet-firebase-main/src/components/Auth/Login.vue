@@ -46,8 +46,8 @@ export default {
         }
         let result = await axios.post("http://localhost:3000/user/auth/login", data)
 
-        var user
-        var token
+        let user
+        let token
 
         await console.log(result.data.user)
         if (result.data.student !== undefined) {

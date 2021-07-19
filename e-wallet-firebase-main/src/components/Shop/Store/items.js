@@ -7,7 +7,7 @@ export const storeItems = [
            price: 1000,
            title: "Cornflakes",
            description: "Nasco flakes mixed with honey",
-           btnText: "Add to cart",
+           addedToCart: false
          },
          {
            id: 2,
@@ -15,7 +15,7 @@ export const storeItems = [
            price: 1800,
            title: "Peak Milk",
            description: "Milk at its peak",
-           btnText: "Add to cart",
+           addedToCart: false
          },
          {
            id: 3,
@@ -23,7 +23,7 @@ export const storeItems = [
            price: 1500,
            title: "Milo",
            description: "Milo Milo Milo Milo",
-           btnText: "Add to cart",
+           addedToCart: false
          },
          {
            id: 4,
@@ -31,7 +31,7 @@ export const storeItems = [
            price: 1000,
            title: "Pack of Biscuit",
            description: "Oxford biscuits for the win",
-           btnText: "Add to cart",
+           addedToCart: false
          },
          {
            id: 5,
@@ -39,6 +39,6 @@ export const storeItems = [
            price: 500,
            title: "Cubed Sugar",
            description: "This has to be St. Louis sugar",
-           btnText: "Add to cart",
+           addedToCart: false
          },
        ];

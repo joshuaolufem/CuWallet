@@ -2,7 +2,7 @@
   <div class="container">
     <div class="card shadow fund-student p-3 mx-auto mt-5">
       <h3 class="text-dark">Fund Student</h3>
-      <form class="user">
+      <form class="user" @submit.prevent="fundStudent">
         <div class="mb-3 form-group">
           <label>Student E-mail</label>
           <input type="email" class="form-control" placeholder="joshuaolufemi@email.com" required v-model="email">
@@ -10,10 +10,6 @@
         <div class="mb-3 form-group">
           <label>Amount</label>
           <input type="number" placeholder="Amount" class="form-control">
-        </div>
-        <div class="mb-3 form-group">
-          <label>Secret Pin</label>
-          <input type="password" placeholder="Your secret 6 digit pin" class="form-control">
         </div>
         <div class="d-flex justify-content-between">
           <router-link class="btn btn-secondary btn-general-alt shadow-sm mx-1" to="/dashboard/agent/fund-wallet">Cancel</router-link>
@@ -27,7 +23,7 @@
 <script>
 import axios from "axios";
 export default {
-  name: 'Fund Student',
+  name: 'FundStudent',
   data: () => ({
     email: '',
     amount: ''
@@ -41,7 +37,8 @@ export default {
           email: this.email,
           amount: this.amount,
         }
-        let result = await axios.post("http:localhost:3000/user/agent/60e38b887d54bb3e74673478/fundstudentwallet", data);
+        let user = this.$store.getters.currentUser
+        let result = await axios.post("http://localhost:3000/user/agent/" + user._id + "/fundstudentwallet", data);
         console.log(result)
       }catch(e){
         console.log(e);

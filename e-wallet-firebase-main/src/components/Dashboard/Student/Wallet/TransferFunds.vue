@@ -1,18 +1,18 @@
 <template lang="html">
   <div class="fund-wallet mx-auto card p-3 mb-3 shadow">
     <h5 class="text-center mb-3">Make a Transfer</h5>
-    <form>
+    <form @submit.prevent="transferFunds">
       <div class="mb-3">
         <label class="form-label">Reciepient's Email</label>
         <input type="email" placeholder="Email of Reciepient" class="form-control" required v-model="email">
       </div>
       <div class="mb-3">
         <label class="form-label">Amount</label>
-        <input type="number" placeholder="Amount in Naira" class="form-control">
+        <input type="number" placeholder="Amount in Naira" class="form-control" v-model="amount">
       </div>
        <div class="mb-3">
         <label class="form-label">Narration</label>
-        <input type="text" placeholder="Narration" class="form-control">
+        <input type="text" placeholder="Narration" class="form-control" v-model="narration">
       </div>
       <div class="text-center">
         <router-link to="/dashboard/student/wallet" class="btn btn-outline-dark btn-general mt-2 mb-3 me-3 mxb-1 mxr-0">
@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import axios from "axios";
+import axios from "axios"
 
 export default {
   name: 'FundWallet',
@@ -46,11 +46,11 @@ export default {
           email: this.email,
           amount: this.amount,
           narration: this.narration
-        } 
-        let result = await axios.post("http://localhost:3000/student/60e3904009f0d2273c7e858c/transfer",data);
+        }
+        let result = await axios.post("student/60e3904009f0d2273c7e858c/transfer", data);
           //email: 'josh@gmail.com',
           //amount: 200
-        
+
         console.log(result)
 
       } catch(e){

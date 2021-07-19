@@ -11,7 +11,6 @@
             <i class="bi bi-person-fill"></i> {{ currentUser.firstName }}
           </a>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-            <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" to="/" @click="logout">Log out</a></li>
           </ul>
         </li>

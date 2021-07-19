@@ -130,20 +130,16 @@ export default {
         }
         if (data.password.length >= 6){
           if (data.password === data.confirmPassword){
-            console.log(data)
+            let result = await axios.post("http://localhost:3000/student/auth/signup", data)
+
+            console.log(result)
+            //I added this
+            this.$router.push('/auth/login')
           }
           else {
             alert('Password does not match')
           }
         }
-
-        let result = await axios.post("http://localhost:3000/student/auth/signup", data)
-
-        console.log(result)
-        //I added this
-        this.$router.push('/auth/login')
-
-
 
       } catch(e){
 console.log(e);

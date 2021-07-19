@@ -18,14 +18,10 @@
         <router-link class="list-group-item list-group-item-action" id="list-profile-list" to="/shop" role="tab" aria-controls="list-profile">Shop</router-link>
       </div>
 
-      <!-- <div class="list-group mt-5 shadow" id="list-tab">
+      <div class="list-group mt-5 shadow" id="list-tab" v-else-if="user.companyName !== undefined">
         <router-link class="list-group-item list-group-item-action" id="list-home-list" to="/dashboard/service-provider/wallet" role="" aria-controls="list-home">Wallet</router-link>
         <router-link class="list-group-item list-group-item-action" id="list-profile-list" to="/dashboard/service-provider/products" aria-controls="list-profile">Products</router-link>
         <router-link class="list-group-item list-group-item-action" id="list-messages-list" to="/settings" role="" aria-controls="list-messages">Orders</router-link>
-      </div> -->
-
-      <div class="list-group mt-5 shadow" id="list-tab" v-else-if="user.role === 'agent'">
-        <router-link class="list-group-item list-group-item-action" id="list-home-list" to="/dashboard/agent/wallet" role="" aria-controls="list-home">Wallet</router-link>
       </div>
 
       <div class="list-group mt-5 shadow" id="list-tab" v-else-if="user.role === 'admin'">

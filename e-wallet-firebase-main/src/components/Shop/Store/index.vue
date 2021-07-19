@@ -4,14 +4,15 @@
       <div class="row g-3">
         <div class="col-md-9 container">
           <div class="row g-3 container">
-            <div class="col-md-4 col-lg-3 col-sm-6 col-xsm-6" v-for="item in items" v-bind:key="item.id">
+            <div class="col-md-4 col-lg-3 col-sm-6 col-xsm-6" v-for="item in items" :key="item.id">
               <div class="card">
-                <img :src="item.img" class="card-img-top" :alt="item.description">
+                <img :src="item.img" class="card-img-top">
                 <div class="card-body">
                   <h5 class="card-title">{{item.title}}</h5>
                   <h5 class="card-title">₦ {{item.price}}</h5>
-                  <p class="card-text">{{item.description}}</p>
-                  <a href="#" class="btn btn-dark d-block">{{item.btnText}}</a>
+                  <p class="card-text">{{item.description.substring(0,20) + '...'}}</p>
+                  <a class="btn btn-warning d-block" v-if="item.addedToCart" @click="routeToCart">Update the Cart</a>
+                  <a class="btn btn-dark d-block" @click="addToCart(item)" v-else>Add to cart</a>
                 </div>
               </div>
             </div>
@@ -50,6 +51,14 @@ export default {
       items: storeItems
     }
   },
+  methods: {
+    async addToCart (item) {
+      alert(item.title)
+    },
+    routeToCart () {
+      this.$router.push('/shop/cart')
+    }
+  }
 }
 </script>
 

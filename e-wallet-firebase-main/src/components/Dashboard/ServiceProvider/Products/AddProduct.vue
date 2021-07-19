@@ -11,23 +11,28 @@
           <form class="user">
             <div class="mb-3 form-group">
               <label>Product image</label>
-              <input type="file" class="form-control">
+              <input type="file" class="form-control" @change="addImage($event)">
             </div>
             <div class="mb-3 form-group">
               <label>Product name</label>
-              <input type="text" placeholder="Product name" class="form-control">
+              <input type="text" placeholder="Product name" class="form-control" v-model="name">
+            </div>
+            <div class="mb-3 form-group">
+              <label class="form-label">Category</label>
+              <select class="form-select" aria-label="Default select example" @change="selectCategory($event)">
+                <option selected disabled>Choose Category</option>
+                <option v-for="category in categories" :key="category.index" :value="categoy">
+                  {{ category }}
+                </option>
+              </select>
             </div>
             <div class="mb-3 form-group">
               <label>Product price</label>
-              <input type="number" placeholder="Product price" class="form-control">
+              <input type="number" placeholder="Product price" class="form-control" v-model="price">
             </div>
             <div class="mb-3 form-group">
-              <label>Weight Measurement</label>
-              <input type="text" placeholder="e.g KG" class="form-control">
-            </div>
-            <div class="mb-3 form-group">
-              <label>Net weight</label>
-              <input type="number" placeholder="e.g KG" class="form-control">
+              <label>Quantity</label>
+              <input type="number" placeholder="Product Quantity" class="form-control" v-model="quantity">
             </div>
             <div class="d-flex justify-content-between">
               <router-link class="btn btn-secondary btn-general-alt shadow-sm mx-1" to="/dashboard/service-provider/products/">Cancel</router-link>
@@ -42,7 +47,17 @@
 
 <script>
 export default {
-  name: 'AddProduct'
+  name: 'AddProduct',
+  data: () => ({
+    name: '',
+    price: '',
+    categories: [
+      'Fashion',
+      'Sports',
+      'Electronics',
+      'Drinks'
+    ]
+  })
 }
 </script>
 
