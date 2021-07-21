@@ -222,25 +222,26 @@ exports.profile = async (req, res, next) => {
 };
 //Student transact to eachother
 exports.sendMoney = async (req, res, next) => {
+  debugger;
   try {
     const studentId = req.params.studentId;
     const student = await Student.findById(studentId);
     if (!student) {
-      return res.status(501).json({
+      return res.status(404).json({
         message:
           "You can't perform this operation, try to login again. Student not found",
       });
     } else {
       let { amount, narration, to, from } = req.body;
       if (amount > student.wallet) {
-        return res.status(501).json({
+        return res.status(400).json({
           message: "You do not have enough balance to perform this action",
         });
       }
       const receiver = await Student.findOne({ email: to });
       if (!receiver) {
         return res
-          .status(501)
+          .status(404)
           .json({ message: "Receiving student email not found" });
       }
       const newTransaction = new Transaction({
@@ -251,7 +252,7 @@ exports.sendMoney = async (req, res, next) => {
       });
       Transaction.create(newTransaction, (err, successfulTransaction) => {
         if (err) {
-          return res.status(501).json({ err });
+          return res.status(500).json({ err });
         } else {
           const output = `
         <h2 font-weight: bold;">Cuewallet - Transaction Alert</h2>

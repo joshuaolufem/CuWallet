@@ -134,6 +134,7 @@ export default {
 
             console.log(result)
             //I added this
+            alert('Check your mail inbox for verification mail');
             this.$router.push('/auth/login')
           }
           else {
@@ -142,7 +143,7 @@ export default {
         }
 
       } catch(e){
-console.log(e);
+          console.log(e);
       }
 
 
